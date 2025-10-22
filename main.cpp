@@ -1,6 +1,7 @@
-//
-// Created by Manju Muralidharan on 10/19/25.
-//
+// CS 210
+// Created by Hassan Faris on 10/21/25.
+// professor Manju Muralidharan
+
 #include <iostream>
 #include <fstream>
 #include <stack>
@@ -91,7 +92,11 @@ int createLeafNodes(int freq[]) {
 int buildEncodingTree(int nextFree) {
     // TODO:
     // 1. Create a MinHeap object.
+    MinHeap heap;
     // 2. Push all leaf node indices into the heap.
+    for (int i = 0; i < nextFree; ++i) {
+        heap.push(i);
+    }
     // 3. While the heap size is greater than 1:
     //    - Pop two smallest nodes
     //    - Create a new parent node with combined weight
