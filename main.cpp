@@ -123,7 +123,17 @@ void generateCodes(int root, string codes[]) {
         auto [node, code] = st.top();
         st.pop();
 
-        // finish the logic
+        if (leftArr[node] == -1 && rightArr[node] == -1) {
+            if (charArr[node] != '\0') {
+                codes[charArr[node] - 'a'] = code;
+            }
+        }
+        else {
+            if (rightArr[node] != -1)
+                st.push({rightArr[node], code + '1'});
+            if (leftArr[node] != -1)
+                st.push({leftArr[node], code + '0'});
+        }
     }
 }
 
